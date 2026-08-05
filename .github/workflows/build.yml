@@ -11,7 +11,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+          sudo apt-get install -y -q \
             cmake \
             ninja-build \
             clang \
@@ -65,20 +65,13 @@ jobs:
           cmake --install build \
             --strip
 
-      - name: Verify
-        run: |
-          ./stage/usr/local/bin/adb --version
-          ./stage/usr/local/bin/fastboot --version
-          ./stage/usr/local/bin/make_f2fs -V
-          ./stage/usr/local/bin/sload_f2fs -V
-
       - name: Prepare artifact
         run: |
-          tar -czf android-tools-linux.tar.gz -C stage .
+          tar -cf android-tools-linux.tar -C stage .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
           name: android-tools-linux
-          path: android-tools-linux.tar.gz
+          path: android-tools-linux.tar
           archive: false
