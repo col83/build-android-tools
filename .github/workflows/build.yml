@@ -23,6 +23,7 @@ jobs:
             libpcre2-dev \
             libprotobuf-dev \
             libunwind-dev \
+            libusb-1.0-0-dev \
             libzstd-dev \
             pandoc \
             protobuf-compiler \
