@@ -1,7 +1,7 @@
 set(ZSH_COMPLETION_DIR "${CMAKE_INSTALL_FULL_DATADIR}/zsh/site-functions")
 
-configure_file(adb.in _adb)
-configure_file(fastboot.in _fastboot)
+configure_file(adb.in _adb @ONLY)
+configure_file(fastboot.in _fastboot @ONLY)
 
 install(FILES
 	"${CMAKE_CURRENT_BINARY_DIR}/_adb"
