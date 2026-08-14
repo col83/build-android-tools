@@ -12,4 +12,4 @@ function check_type() {
 	type "$1"
 }
 
-source "@COMPLETION_COMMON_DIR@/fastboot"
+source "${0:A:h}/../../android-tools/completions/fastboot"

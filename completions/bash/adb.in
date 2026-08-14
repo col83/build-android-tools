@@ -5,4 +5,4 @@ function check_type() {
 	type -t "$1"
 }
 
-source "@COMPLETION_COMMON_DIR@/adb"
+source "$(dirname "${BASH_SOURCE[0]}")/../../android-tools/completions/adb"
